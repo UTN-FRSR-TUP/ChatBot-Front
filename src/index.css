@@ -89,4 +89,19 @@ li{
 }
 
 
+.card{
+  --mdb-card-height: 80vh;
+  height: 80vh;
+}
 
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#main-container{
+  position: absolute;
+  right: 6%;
+  bottom: 100%;
+}

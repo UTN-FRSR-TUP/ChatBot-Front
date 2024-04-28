@@ -6,7 +6,7 @@ export const Header = () => {
 	const [companyData, setCompanyData] = useState(Data);
 	return (
 		<MDBCardHeader
-			className="d-flex justify-content-center align-items-center p-3 text-white border-bottom-0"
+			className="d-flex justify-content-center align-items-center p-3  text-white border-bottom-0"
 			style={{
 				borderTopLeftRadius: "15px",
 				borderTopRightRadius: "15px",

@@ -12,7 +12,7 @@ export const Body = () => {
 	return (
 		<MDBCardBody id="card-body" style={{scrollbarWidth: "thin",
 		scrollbarColor:  colors,}}>
-			<ul className="ps-0 pe-2" id="messages" style={{height:"16rem", overflowY:"scroll"}}>
+			<ul className="ps-0 pe-2" id="messages" style={{height:"calc(75vh - 11rem)", overflowY:"scroll"}}>
 				<li className="">
 					<BotMessage />
 				</li>
