@@ -16,7 +16,8 @@ import { Body } from "./Body";
 export default function Chatbot() {
 	return (
 		<>
-			<MDBContainer className="py-5">
+		<div>
+			<MDBContainer className="py-5 ">
 				<MDBRow className="d-flex justify-content-center">
 					<MDBCol md="8" lg="6" xl="4">
 						<MDBCard id="chat1" style={{ borderRadius: "15px" }}>
@@ -26,7 +27,7 @@ export default function Chatbot() {
 					</MDBCol>
 				</MDBRow>
 			</MDBContainer>
-			
+			</div>
 		</>
 	);
 }

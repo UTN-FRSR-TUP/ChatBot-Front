@@ -11,7 +11,7 @@ function App() {
 		<>
 			{showChat && <Chatbot />}{" "}
 			{showChat && <CloseButton setShowChat={setShowChat} />}
-			{!showChat && <InitialButton setShowChat={setShowChat} />}
+			{!showChat && <InitialButton setShowChat={setShowChat} showChat={showChat} />}
 		</>
 	);
 }

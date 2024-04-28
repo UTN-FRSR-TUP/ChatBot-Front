@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import Data from "../utils/company-config.json";
 
-export const InitialButton = ({setShowChat}) => {
+export const InitialButton = ({setShowChat, showChat}) => {
 	const [companyData, setCompanyData] = useState(Data);
 	return (
 		<>

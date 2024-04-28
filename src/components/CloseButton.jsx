@@ -6,7 +6,7 @@ export const CloseButton = ({setShowChat}) => {
 	return (
 		<>
     			<div className="position-fixed bottom-0 end-0 m-4">
-				<img className="" onClick={()=>setShowChat(true)} src={companyData["bot-data"]["bot-img"]} alt="chatbot" style={{ width: "3rem", height: "100%" }}/>
+				<img className="" onClick={()=>setShowChat(false)} src={companyData["bot-data"]["bot-img"]} alt="chatbot" style={{ width: "3rem", height: "100%" }}/>
 			</div>
 		</>
 	);
