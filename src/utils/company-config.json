@@ -1,5 +1,5 @@
  {
-    "bussines-data":{
+    "bussiness-data":{
         "name":"",
         "email":"",
         "phone":"",
@@ -8,8 +8,8 @@
         "state":"",
         "cp":"",
         "country":"",
-        "primary-color":"",
-        "secondary-color":"",
+        "primary-color":"rgba(23, 162, 184, 1)",
+        "secondary-color":"rgba(57, 192, 237,.2)",
         "logo":""
         },
     "bot-data":{

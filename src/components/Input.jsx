@@ -5,9 +5,9 @@ export const Input = () => {
 	return (
 		<MDBTextArea
 			className="form-outline"
-			label="Type your message"
+			label="Escribe tu consulta aquí..."
 			id="textAreaExample"
-			rows={4}
+			rows={2}
 		/>
 	);
 };

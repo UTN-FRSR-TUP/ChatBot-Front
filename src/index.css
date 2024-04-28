@@ -6,6 +6,11 @@
 body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
 }
+li{
+  list-style: none;
+
+}
+
 
 #chat1 .form-outline ~ .form-notch div {
   pointer-events: none;

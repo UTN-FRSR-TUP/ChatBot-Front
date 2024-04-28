@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import Data from "../utils/company-config.json";
 
 export const BotMessage = () => {
@@ -10,13 +9,14 @@ export const BotMessage = () => {
 				<img
 					src={companyData["bot-data"]["bot-img"]}
 					alt="avatar 1"
-					style={{ width: "4rem", height: "100%" }}
+					style={{ width: "3rem", height: "100%" }}
 				/>
 				<div
 					className="p-3 ms-3"
 					style={{
 						borderRadius: "15px",
-						backgroundColor: "rgba(57, 192, 237,.2)",
+						backgroundColor: companyData["bussiness-data"]["secondary-color"],
+						
 					}}
 				>
 					<p className="small mb-0">
