@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 
+
 export const BotMessage = ({botImg, botName, companyName, secondaryColor, botMessage}) => {
 	return (
 		<>
