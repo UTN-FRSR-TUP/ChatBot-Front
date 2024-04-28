@@ -3,7 +3,7 @@ import { MDBCardBody, MDBTextArea } from "mdb-react-ui-kit";
 import { BotMessage } from "./BotMessage";
 import { UserMessage } from "./UserMessage";
 import { Input } from "./Input";
-import Data from "../utils/company-config.json";
+
 
 export const Body = ({
 	botImg,
@@ -15,6 +15,7 @@ export const Body = ({
 }) => {
 	const colors = primaryColor + " " + secondaryColor;
 	const [botMessage, setBotMessage] = useState(welcomeMessage);
+	const [listMessage, setListMessage] = useState([]);
 	return (
 		<MDBCardBody
 			id="card-body"
@@ -25,44 +26,38 @@ export const Body = ({
 				id="messages"
 				style={{ height: "calc(75vh - 11rem)", overflowY: "scroll" }}
 			>
-				<li className="">
 				<BotMessage
 						botImg={botImg}
 						botName={botName}
 						companyName={companyName}
-						welcomeMessage={welcomeMessage}
 						secondaryColor={secondaryColor}
-						botMessage={botMessage}
+						botMessage={welcomeMessage}
 					/>
-				</li>
-				<li className="">
-					<UserMessage />
-				</li>
-				<li className="">
-				<BotMessage
-						botImg={botImg}
-						botName={botName}
-						companyName={companyName}
-						welcomeMessage={welcomeMessage}
-						secondaryColor={secondaryColor}
-						botMessage={botMessage}
-					/>
-				</li>
-				<li className="">
-					<UserMessage />
-				</li>
-				<li className="">
-				<BotMessage
-						botImg={botImg}
-						botName={botName}
-						companyName={companyName}
-						welcomeMessage={welcomeMessage}
-						secondaryColor={secondaryColor}
-						botMessage={botMessage}
-					/>
-				</li>
+			{listMessage.map((message, index) => {
+				if (message.fromUser) {
+					return (
+						<li key={index} className="">
+							<UserMessage userMessage={message.text} />
+						</li>
+					);
+				} else {
+					return (
+						<li key={index} className="">
+							<BotMessage
+								botImg={botImg}
+								botName={botName}
+								companyName={companyName}
+								welcomeMessage={welcomeMessage}
+								secondaryColor={secondaryColor}
+								botMessage={botMessage}
+							/>
+						</li>
+					);
+				}
+			})}
 			</ul>
-			<Input />
+			
+			<Input setListMessage={setListMessage}/>
 		</MDBCardBody>
 	);
 };

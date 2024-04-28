@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Data from "../utils/company-config.json";
 
-export const BotMessage = ({botImg, botName, companyName, welcomeMessage, secondaryColor, botMessage}) => {
+
+export const BotMessage = ({botImg, botName, companyName, secondaryColor, botMessage}) => {
 	return (
 		<>
 			<div className="d-flex flex-row justify-content-start mb-4">

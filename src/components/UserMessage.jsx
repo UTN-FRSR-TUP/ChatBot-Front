@@ -1,6 +1,6 @@
 import React from "react";
 
-export const UserMessage = () => {
+export const UserMessage = ({userMessage}) => {
 	return (
 		<div className="d-flex flex-row justify-content-end mb-4">
 			<div
@@ -8,7 +8,7 @@ export const UserMessage = () => {
 				style={{ borderRadius: "15px", backgroundColor: "#fbfbfb" }}
 			>
 				<p className="small mb-0">
-					Thank you, I really like your product.
+					{userMessage}
 				</p>
 			</div>
 			{/* <img
