@@ -1,0 +1,27 @@
+ {
+    "bussines-data":{
+        "name":"",
+        "email":"",
+        "phone":"",
+        "address":"",
+        "city":"",
+        "state":"",
+        "cp":"",
+        "country":"",
+        "primary-color":"",
+        "secondary-color":"",
+        "logo":""
+        },
+    "bot-data":{
+        "name":"",
+        "bot-img":"../../public/img/chatbot.png",
+        "welcome-message":"",
+        "context":"",
+        "role":"",
+        "information":""
+    },
+    "user-data":{
+        "user-img":""
+    }
+
+}
