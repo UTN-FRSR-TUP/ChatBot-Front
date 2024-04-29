@@ -23,7 +23,7 @@ export const InitialButton = () => {
 						onClick={() => setShowChat(showChat ? false : true)}
 						src={botImg}
 						alt="chatbot"
-						style={{ width: widthImg, height: "100%" }}
+						style={{ width: widthImg, height: "100%", animation: "wiggle 2s infinite"}}
 					/>
 				</div>
 			</div>
