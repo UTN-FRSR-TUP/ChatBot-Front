@@ -9387,7 +9387,7 @@ const oc = {
 	},
 	"bot-data": {
 		name: "Sherlock",
-		"bot-img": "/img/chatbot.png",
+		"bot-img": "img/chatbot.png",
 		"welcome-message":
 			"Hola, soy tu asistente virtual, ¿en qué puedo ayudarte?",
 		context: "",
