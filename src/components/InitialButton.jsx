@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import Data from "../utils/company-config.json";
 import  Chatbot  from "./Chatbot";
 
-export const InitialButton = () => {
+ export const InitialButton = () => {
 	const [companyData, setCompanyData] = useState(Data);
 	const [showChat, setShowChat] = useState(false);
 	const widthImg = showChat ? "6%" : "8%";
 	const botImg = companyData["bot-data"]["bot-img"];
+
+	
 	return (
 		<>
 			<div className="position fixed h-100">

@@ -14,7 +14,7 @@
         },
     "bot-data":{
         "name":"Sherlock",
-        "bot-img":"public/img/chatbot.png",
+        "bot-img":"img/chatbot.png",
         "welcome-message":"Hola, soy tu asistente virtual, ¿en qué puedo ayudarte?",
         "context":"",
         "role":"",
