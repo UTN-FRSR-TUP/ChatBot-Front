@@ -1,10 +1,13 @@
+
+const apiUrl = 'https://chat-ia-python-env.onrender.com/chat/';
+
 async function consultaChatBot(message) {
-    fetch("https://chatbot-back-o95g.onrender.com/chat/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(message),
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+        body: JSON.stringify({ text:message}),
     })
     .then((response) => {
         if (!response.ok) {
@@ -21,5 +24,6 @@ async function consultaChatBot(message) {
     });
 }
 
-export { consultaChatBot }; 
+export { consultaChatBot };
+
 

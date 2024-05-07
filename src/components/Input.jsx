@@ -13,8 +13,11 @@ export const Input = ({ setListMessage}) => {
 				{ text: message, fromUser: true },
 			]);
 			e.target.value = "";
+			consultaChatBot("hola")
+			
+
 		}
-		consultaChatBot(message)
+		
 	};
 	
 	return (

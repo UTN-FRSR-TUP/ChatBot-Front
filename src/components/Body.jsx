@@ -12,6 +12,7 @@ export const Body = ({
 	welcomeMessage,
 	primaryColor,
 	secondaryColor,
+	sendMessage
 }) => {
 	const colors = primaryColor + " " + secondaryColor;
 
@@ -61,7 +62,7 @@ export const Body = ({
 				})}
 			</ul>
 
-			<Input setListMessage={setListMessage} />
+			<Input setListMessage={setListMessage} onChange={(e) => sendMessage(e.target.value)} />
 		</MDBCardBody>
 	);
 };

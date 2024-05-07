@@ -13,7 +13,7 @@ import { Header } from "./Header";
 import { Body } from "./Body";
 import Data from "../utils/company-config.json"; 
 
-export default function Chatbot({botImg}) {
+export default function Chatbot({botImg, sendMessage}) {
 	const [companyData, setCompanyData] = useState(Data);
 	const botName = companyData["bot-data"]["name"];
 	const companyName = companyData["bussiness-data"]["name"];
@@ -28,7 +28,7 @@ export default function Chatbot({botImg}) {
 					<MDBCol md="8" lg="6" xl="4">
 						<MDBCard id="chat1" style={{ borderRadius: "15px" }} >
 							<Header botName={botName} primaryColor={primaryColor}/>
-							<Body botImg={botImg} botName={botName} companyName={companyName} welcomeMessage={welcomeMessage} primaryColor={primaryColor} secondaryColor={secondaryColor}/>
+							<Body botImg={botImg} botName={botName} companyName={companyName} welcomeMessage={welcomeMessage} primaryColor={primaryColor} secondaryColor={secondaryColor} sendMessage={sendMessage}/>
 						</MDBCard>
 					</MDBCol>
 				</MDBRow>

@@ -6,8 +6,12 @@ import  Chatbot  from "./Chatbot";
 	const [companyData, setCompanyData] = useState(Data);
 	const [showChat, setShowChat] = useState(false);
 	const widthImg = showChat ? "6%" : "8%";
-	const botImg = companyData["bot-data"]["bot-img"];
-
+	const botImg =/*  companyData["bot-data"]["bot-img"] */ 'https://cdn-icons-png.flaticon.com/512/4712/4712109.png' ;
+	const [message, setMessage] = useState("");
+	const handleSendMessage = (message) => {
+        setMessage(message);
+        consultaChatBot({ message }); // Llama a la función consultaChatBot con el mensaje
+    };
 	
 	return (
 		<>
@@ -18,7 +22,7 @@ import  Chatbot  from "./Chatbot";
 					id="main-button"
 					className="position-absolute bottom-0 end-0 mx-4 mb-4 d-flex justify-content-end "
 				>
-					{showChat && <Chatbot botImg={botImg} />}
+					{showChat && <Chatbot botImg={botImg} sendMessage={handleSendMessage} />}
 					
 					<img
 						className=""
