@@ -103,7 +103,7 @@ export const Form = () => {
 				{" "}
 				<div className="d-flex gap-2">
 					<h1 className="mb-0" style={{ color: colorPrimario }}>
-						CHATBOT <span>{nombreBot}</span>
+						CHATBOT <span className="mx-2">{nombreBot}</span>
 						<img
 							className=""
 							onClick={() => setShowChat(showChat ? false : true)}

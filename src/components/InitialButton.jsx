@@ -18,7 +18,7 @@ import  Chatbot  from "./Chatbot";
 	
 	return (
 		<>
-			<div className="position fixed h-100">
+			<div className="position-fixed h-100 " style={{bottom:"0", right:"0"}}>
 				
 
 				<div
