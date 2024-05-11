@@ -20,6 +20,7 @@ export default function Chatbot({
 	botImg,
 	sendMessage,
 	widthImg,
+	listMessage, setListMessage
 }) {
 	const [companyData, setCompanyData] = useState(Data);
 	/* const botName = botName; */
@@ -50,6 +51,8 @@ export default function Chatbot({
 								secondaryColor={secondaryColor}
 								sendMessage={sendMessage}
 								widthImg={widthImg}
+								listMessage={listMessage}
+								setListMessage={setListMessage}
 							/>
 						</MDBCard>
 					</MDBCol>

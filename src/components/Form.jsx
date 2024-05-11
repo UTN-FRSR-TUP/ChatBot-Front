@@ -9,8 +9,10 @@ import {
 import Data from "../utils/company-config.json";
 import { InitialButton } from "./InitialButton";
 
-/* Nombre Bot */
 export const Form = () => {
+	const welcomeMessage = Data["bot-data"]["welcome-message"];
+
+	/* Nombre Bot */
 	const [nombreBot, setNombreBot] = useState(Data["bot-data"]["name"]);
 	const handleNombreBotChange = (event) => {
 		setNombreBot(event.target.value);
@@ -224,19 +226,6 @@ export const Form = () => {
 							</div>
 						))}
 					</div>
-
-					{/* Submit */}
-					{/* <button
-						type="submit"
-						className="btn btn-primary"
-						style={{
-							backgroundColor: colorPrimario,
-							zIndex: "5",
-							borderRadius: "2em",
-						}}
-					>
-						Enviar
-					</button> */}
 				</div>
 			</form>
 			<InitialButton
@@ -244,6 +233,7 @@ export const Form = () => {
 				botName={nombreBot}
 				colorPrimario={colorPrimario}
 				colorSecundario={colorSecundario}
+				welcomeMessage={welcomeMessage}
 			/>
 		</div>
 	);

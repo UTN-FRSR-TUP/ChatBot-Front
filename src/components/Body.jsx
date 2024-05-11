@@ -13,12 +13,12 @@ export const Body = ({
 	primaryColor,
 	secondaryColor,
 	widthImg,
+	listMessage,
+	setListMessage
 }) => {
 	const colors = primaryColor + " " + secondaryColor;
 
-	const [listMessage, setListMessage] = useState([
-		{ text: welcomeMessage, fromUser: false },
-	]);
+	
 	const messagesEndRef = useRef(null);
 
 	useEffect(() => {
