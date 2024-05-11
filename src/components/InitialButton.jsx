@@ -23,12 +23,12 @@ import  Chatbot  from "./Chatbot";
 
 				<div
 					id="main-button"
-					className="position-absolute bottom-0 end-0 mx-4 mb-4 d-flex justify-content-end "
+					className="position-absolute bottom-0 end-0 mx-4 mb-4 d-flex justify-content-end z-index-100 "
 				>
 					{showChat && <Chatbot botImg={botImg} botName={botName} colorPrimario={colorPrimario} colorSecundario={colorSecundario} sendMessage={handleSendMessage}  widthImg={widthImg} listMessage={listMessage} setListMessage={setListMessage} welcomeMessage={welcomeMessage} companyName={companyName} consultaChatBot={consultaChatBot}/>}
 					
 					<img
-						className=""
+						className="d-sm-none d-md-block"
 						onClick={() => setShowChat(showChat ? false : true)}
 						src={botImg}
 						alt="chatbot"
