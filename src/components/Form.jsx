@@ -234,6 +234,7 @@ export const Form = () => {
 				colorPrimario={colorPrimario}
 				colorSecundario={colorSecundario}
 				welcomeMessage={welcomeMessage}
+				companyName={Data["bussiness-data"]["name"]}
 			/>
 		</div>
 	);

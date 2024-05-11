@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { MDBCardHeader, MDBIcon } from "mdb-react-ui-kit";
-import Data from "../utils/company-config.json"; 
+
 
 export const Header = ({botName, primaryColor}) => {
 

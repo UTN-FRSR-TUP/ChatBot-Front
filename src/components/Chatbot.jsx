@@ -11,7 +11,7 @@ import {
 } from "mdb-react-ui-kit";
 import { Header } from "./Header";
 import { Body } from "./Body";
-import Data from "../utils/company-config.json";
+
 
 export default function Chatbot({
 	botName,
@@ -20,12 +20,9 @@ export default function Chatbot({
 	botImg,
 	sendMessage,
 	widthImg,
-	listMessage, setListMessage
+	listMessage, setListMessage, welcomeMessage, companyName
 }) {
-	const [companyData, setCompanyData] = useState(Data);
-	/* const botName = botName; */
-	const companyName = companyData["bussiness-data"]["name"];
-	const welcomeMessage = companyData["bot-data"]["welcome-message"];
+
 	const primaryColor = colorPrimario;
 	const secondaryColor = colorSecundario;
 	return (
