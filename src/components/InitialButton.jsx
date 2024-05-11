@@ -5,7 +5,7 @@ import  Chatbot  from "./Chatbot";
 	
 	const [showChat, setShowChat] = useState(false);
 	const widthImg = showChat ? "4rem" : "6rem";
-	/* const botImg = botImg  */ /* 'https://cdn-icons-png.flaticon.com/512/4712/4712109.png' */ ;
+	
 	const [message, setMessage] = useState("");
 	const handleSendMessage = (message) => {
         setMessage(message);
