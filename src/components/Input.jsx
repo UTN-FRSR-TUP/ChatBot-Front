@@ -1,6 +1,5 @@
-import React, { useState } from "react";
 import { MDBTextArea } from "mdb-react-ui-kit";
-import {consultaChatBot} from "../utils/api-connect.js"
+
 
 export const Input = ({ setListMessage}) => {
 	
@@ -14,8 +13,9 @@ export const Input = ({ setListMessage}) => {
 			]);
 			e.target.value = "";
 		}
-		consultaChatBot(message)
 	};
+
+
 	
 	return (
 		<MDBTextArea
