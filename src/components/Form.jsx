@@ -117,7 +117,9 @@ export const Form = () => {
 						/>
 					</h1>
 				</div>
-				<p className="tw-lighter fst-italic fs-5 mx-2">Desarrollado por el Equipo UTN-MMXXIII</p>
+				<p className="tw-lighter fst-italic fs-5 mx-2">
+					Desarrollado por el Equipo UTN-MMXXIII
+				</p>
 				<h5 className="mt-2 mx-4"> Detalles del ChatBot </h5>
 				<p className="w-75 mx-4" style={{ textAlign: "justify" }}>
 					Mi nombre es{" "}
@@ -134,10 +136,7 @@ export const Form = () => {
 						{/* Nombre */}
 						<div className="col-md-6">
 							<div className="form-group d-flex flex-column align-items-start">
-								<label
-									htmlFor="name"
-									className="mb-2"
-								>
+								<label htmlFor="name" className="mb-2">
 									Nombre del Robot
 								</label>
 								<input
@@ -164,10 +163,13 @@ export const Form = () => {
 
 						<div className="col-md-3">
 							<div className="form-group d-flex flex-column align-items-center">
-								<label htmlFor="colorP">Color Primario</label>
+								<label htmlFor="colorP" className="mb-2">
+									Color Primario
+								</label>
 								<Dropdown
 									isOpen={dropdownOpen0}
 									toggle={toggleDropdown0}
+									className="mb-2"
 								>
 									<DropdownToggle
 										caret
@@ -195,10 +197,13 @@ export const Form = () => {
 						{/* Color Secundario */}
 						<div className="col-md-3">
 							<div className="form-group d-flex flex-column align-items-center">
-								<label htmlFor="colorS">Color Secundario</label>
+								<label htmlFor="colorS" className="mb-2">
+									Color Secundario
+								</label>
 								<Dropdown
 									isOpen={dropdownOpen}
 									toggle={toggleDropdown}
+									className="mb-2"
 								>
 									<DropdownToggle
 										caret
