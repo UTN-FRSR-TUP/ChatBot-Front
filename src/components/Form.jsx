@@ -9,13 +9,6 @@ import {
 import Data from "../utils/company-config.json";
 import { InitialButton } from "./InitialButton";
 
-/* Manejo de Img GH y LH */
-const currentUrl = window.location.href
-const LHImgs = "../../"
-const imagenBotDir = currentUrl.includes("localhost") ? 
-        LHImgs + Data["bot-data"]["bot-img"] : 
-        Data["bot-data"]["bot-img"];
-
 /* Nombre Bot */
 export const Form = () => {
 	const [nombreBot, setNombreBot] = useState(Data["bot-data"]["name"]);
@@ -67,19 +60,19 @@ export const Form = () => {
 	};
 
 	/* Selector de Imagenes */
-	const [imagenBot, setImagenBot] = useState(imagenBotDir);
+	const [imagenBot, setImagenBot] = useState(Data["bot-data"]["bot-img"]);
 
 	const handleImagenBotClick = (url) => {
 		setImagenBot(url);
 	};
 
 	const imagenes = [
-		{ url: imagenBotDir, nombre: "Imagen 1" },
-		{ url: LHImgs+"img/opt2.png", nombre: "Imagen 2" },
-		{ url: LHImgs+"img/opt3.png", nombre: "Imagen 3" },
-		{ url: LHImgs+"img/opt4.png", nombre: "Imagen 4" },
-		{ url: LHImgs+"img/opt5.png", nombre: "Imagen 5" },
-		{ url: LHImgs+"img/opt6.png", nombre: "Imagen 6" },
+		{ url: Data["bot-data"]["bot-img"], nombre: "Imagen 1" },
+		{ url: "img/opt2.png", nombre: "Imagen 2" },
+		{ url: "img/opt3.png", nombre: "Imagen 3" },
+		{ url: "img/opt4.png", nombre: "Imagen 4" },
+		{ url: "img/opt5.png", nombre: "Imagen 5" },
+		{ url: "img/opt6.png", nombre: "Imagen 6" },
 	];
 
 	return (
@@ -97,8 +90,13 @@ export const Form = () => {
 				<div className="container d-flex flex-column align-items-center">
 					<div className="row w-50">
 						<div className="col-md-12">
-						<div className="form-group d-flex flex-column align-items-center">
-							<label htmlFor="name" style={{ textAlign: "center" }}>Nombre del Robot</label>
+							<div className="form-group d-flex flex-column align-items-center">
+								<label
+									htmlFor="name"
+									style={{ textAlign: "center" }}
+								>
+									Nombre del Robot
+								</label>
 								<input
 									type="text"
 									className="form-control text-center"
@@ -241,7 +239,12 @@ export const Form = () => {
 					</button> */}
 				</div>
 			</form>
-			<InitialButton botImg={imagenBot} botName={nombreBot} colorPrimario={colorPrimario} colorSecundario={colorSecundario}  />
+			<InitialButton
+				botImg={imagenBot}
+				botName={nombreBot}
+				colorPrimario={colorPrimario}
+				colorSecundario={colorSecundario}
+			/>
 		</div>
 	);
 };
