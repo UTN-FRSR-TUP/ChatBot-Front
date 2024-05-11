@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import  Chatbot  from "./Chatbot";
 
- export const InitialButton = ({botImg, botName, colorPrimario, colorSecundario, welcomeMessage, companyName}) => {
+ export const InitialButton = ({botImg, botName, colorPrimario, colorSecundario, welcomeMessage, companyName, consultaChatBot}) => {
 	
 	const [showChat, setShowChat] = useState(false);
 	const widthImg = showChat ? "4rem" : "6rem";
@@ -25,7 +25,7 @@ import  Chatbot  from "./Chatbot";
 					id="main-button"
 					className="position-absolute bottom-0 end-0 mx-4 mb-4 d-flex justify-content-end "
 				>
-					{showChat && <Chatbot botImg={botImg} botName={botName} colorPrimario={colorPrimario} colorSecundario={colorSecundario} sendMessage={handleSendMessage}  widthImg={widthImg} listMessage={listMessage} setListMessage={setListMessage} welcomeMessage={welcomeMessage} companyName={companyName} />}
+					{showChat && <Chatbot botImg={botImg} botName={botName} colorPrimario={colorPrimario} colorSecundario={colorSecundario} sendMessage={handleSendMessage}  widthImg={widthImg} listMessage={listMessage} setListMessage={setListMessage} welcomeMessage={welcomeMessage} companyName={companyName} consultaChatBot={consultaChatBot}/>}
 					
 					<img
 						className=""

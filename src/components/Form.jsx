@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CirclePicker } from "react-color";
 import {
 	Dropdown,
@@ -8,9 +8,29 @@ import {
 } from "reactstrap";
 import Data from "../utils/company-config.json";
 import { InitialButton } from "./InitialButton";
+import { consultaChatBot } from "../utils/api-connect";
 
 export const Form = () => {
+	/* API Connect */
+
+	/* Mensaje de bienvenida */
 	const welcomeMessage = Data["bot-data"]["welcome-message"];
+
+	/* Presentacion del Chat */
+	const [chatPresentation, setChatPresentation] = useState("");
+
+	useEffect(() => {
+		const fetchChatBotPresentation = async () => {
+			try {
+				const respuesta = await consultaChatBot("¿quién eres?");
+				setChatPresentation(respuesta);
+			} catch (error) {
+				console.error("Error consultando al chatbot:", error);
+			}
+		};
+
+		fetchChatBotPresentation();
+	}, []);
 
 	/* Nombre Bot */
 	const [nombreBot, setNombreBot] = useState(Data["bot-data"]["name"]);
@@ -78,24 +98,45 @@ export const Form = () => {
 	];
 
 	return (
-		<div className="landing position-relative d-flex flex-column align-items-center justify-content-evenly">
-			<div>
+		<div className="landing position-relative d-flex flex-column align-items-start justify-content-evenly ">
+			<div className="d-flex flex-column align-items-start mx-4">
 				{" "}
-				<h1 className="text-center " style={{ color: colorPrimario }}>
-					CHATBOT
-				</h1>
-				<h2 className="text-center ">
-					Desarrollado por Equipo UTN-MMXXIII
-				</h2>
+				<div className="d-flex gap-2">
+					<h1 className="mb-0" style={{ color: colorPrimario }}>
+						CHATBOT <span>{nombreBot}</span>
+						<img
+							className=""
+							onClick={() => setShowChat(showChat ? false : true)}
+							src={imagenBot}
+							alt="chatbot"
+							style={{
+								width: "4rem",
+								height: "100%",
+								animation: "wiggle 2s infinite",
+							}}
+						/>
+					</h1>
+				</div>
+				<p className="tw-lighter fst-italic fs-5 mx-2">Desarrollado por el Equipo UTN-MMXXIII</p>
+				<h5 className="mt-2 mx-4"> Detalles del ChatBot </h5>
+				<p className="w-75 mx-4" style={{ textAlign: "justify" }}>
+					Mi nombre es{" "}
+					<span className="fw-bold" style={{ color: colorPrimario }}>
+						{nombreBot}
+					</span>
+					. {chatPresentation}
+				</p>
+				<h5 className="my-4 mx-4"> Personalización del ChatBot </h5>
 			</div>
 			<form action="submit" method="post">
-				<div className="container d-flex flex-column align-items-center">
-					<div className="row w-50">
-						<div className="col-md-12">
-							<div className="form-group d-flex flex-column align-items-center">
+				<div className="container d-flex flex-column align-items-start mx-4">
+					<div className="row w-50 mx-4 d-flex align-items-end w-75">
+						{/* Nombre */}
+						<div className="col-md-6">
+							<div className="form-group d-flex flex-column align-items-start">
 								<label
 									htmlFor="name"
-									style={{ textAlign: "center" }}
+									className="mb-2"
 								>
 									Nombre del Robot
 								</label>
@@ -103,7 +144,7 @@ export const Form = () => {
 									type="text"
 									className="form-control text-center"
 									id="name"
-									placeholder="Nombre ChatBot"
+									placeholder={nombreBot}
 									onChange={handleNombreBotChange}
 									style={{
 										borderRadius: "2em",
@@ -119,17 +160,9 @@ export const Form = () => {
 								/>
 							</div>
 						</div>
-					</div>
-					{/* Color Primario */}
-					<div
-						className="row"
-						style={{
-							marginTop: "20px",
-							marginBottom: "30px",
-							width: "100%",
-						}}
-					>
-						<div className="col-md-6">
+						{/* Color Primario */}
+
+						<div className="col-md-3">
 							<div className="form-group d-flex flex-column align-items-center">
 								<label htmlFor="colorP">Color Primario</label>
 								<Dropdown
@@ -160,7 +193,7 @@ export const Form = () => {
 						</div>
 
 						{/* Color Secundario */}
-						<div className="col-md-6">
+						<div className="col-md-3">
 							<div className="form-group d-flex flex-column align-items-center">
 								<label htmlFor="colorS">Color Secundario</label>
 								<Dropdown
@@ -195,14 +228,14 @@ export const Form = () => {
 					{/* Selector de Imagenes */}
 
 					<div
-						className="row gap-3 d-flex justify-content-center align-items-center "
+						className="row gap-3 d-flex justify-content-start align-items-center mx-4"
 						style={{
 							marginBottom: "30px",
 							width: "100%",
 							zIndex: "2",
 						}}
 					>
-						<label htmlFor="imagen" style={{ textAlign: "center" }}>
+						<label htmlFor="imagen" className="mt-4">
 							Imagen del Robot
 						</label>
 						{imagenes.map((imagen, index) => (
@@ -235,6 +268,7 @@ export const Form = () => {
 				colorSecundario={colorSecundario}
 				welcomeMessage={welcomeMessage}
 				companyName={Data["bussiness-data"]["name"]}
+				consultaChatBot={consultaChatBot}
 			/>
 		</div>
 	);

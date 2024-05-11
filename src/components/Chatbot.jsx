@@ -12,7 +12,6 @@ import {
 import { Header } from "./Header";
 import { Body } from "./Body";
 
-
 export default function Chatbot({
 	botName,
 	colorPrimario,
@@ -20,9 +19,12 @@ export default function Chatbot({
 	botImg,
 	sendMessage,
 	widthImg,
-	listMessage, setListMessage, welcomeMessage, companyName
+	listMessage,
+	setListMessage,
+	welcomeMessage,
+	companyName,
+	consultaChatBot,
 }) {
-
 	const primaryColor = colorPrimario;
 	const secondaryColor = colorSecundario;
 	return (
@@ -30,10 +32,16 @@ export default function Chatbot({
 			<MDBContainer
 				id="main-container"
 				className=""
-				style={{ position: "absolute", right: widthImg, bottom: '100%', width: '22rem', zIndex: '1000'}}
+				style={{
+					position: "absolute",
+					right: widthImg,
+					bottom: "100%",
+					width: "22rem",
+					zIndex: "1000",
+				}}
 			>
 				<MDBRow className="d-flex justify-content-end">
-					<MDBCol md="8" lg="6" xl="4" style={{width:'100%'}}>
+					<MDBCol md="8" lg="6" xl="4" style={{ width: "100%" }}>
 						<MDBCard id="chat1" style={{ borderRadius: "15px" }}>
 							<Header
 								botName={botName}
@@ -50,6 +58,7 @@ export default function Chatbot({
 								widthImg={widthImg}
 								listMessage={listMessage}
 								setListMessage={setListMessage}
+								consultaChatBot={consultaChatBot}
 							/>
 						</MDBCard>
 					</MDBCol>

@@ -3,7 +3,7 @@ import { MDBCardBody } from "mdb-react-ui-kit";
 import { BotMessage } from "./BotMessage";
 import { UserMessage } from "./UserMessage";
 import { Input } from "./Input";
-import { consultaChatBot } from "../utils/api-connect";
+
 
 export const Body = ({
 	botImg,
@@ -14,11 +14,10 @@ export const Body = ({
 	secondaryColor,
 	widthImg,
 	listMessage,
-	setListMessage
+	setListMessage,
+	consultaChatBot
 }) => {
 	const colors = primaryColor + " " + secondaryColor;
-
-	
 	const messagesEndRef = useRef(null);
 
 	useEffect(() => {
@@ -38,9 +37,10 @@ export const Body = ({
 				}
 			}
 		};
-
+	
 		fetchChatBotResponse();
 	}, [listMessage]);
+	
 
 	useEffect(() => {
 		if (messagesEndRef.current) {
