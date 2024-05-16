@@ -24,6 +24,7 @@ export default function Chatbot({
 	welcomeMessage,
 	companyName,
 	consultaChatBot,
+	setShowChat
 }) {
 	const primaryColor = colorPrimario;
 	const secondaryColor = colorSecundario;
@@ -37,7 +38,7 @@ export default function Chatbot({
 					right: widthImg,
 					bottom: "100%",
 					width: "22rem",
-					zIndex: "1000",
+					
 				}}
 			>
 				<MDBRow className="d-flex justify-content-end">
@@ -46,6 +47,7 @@ export default function Chatbot({
 							<Header
 								botName={botName}
 								primaryColor={primaryColor}
+								setShowChat={setShowChat}
 							/>
 							<Body
 								botImg={botImg}

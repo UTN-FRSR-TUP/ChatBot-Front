@@ -105,6 +105,7 @@ export const Form = () => {
 					<h1 className="mb-0" style={{ color: colorPrimario }}>
 						CHATBOT <span className="mx-2">{nombreBot}</span>
 						<img
+							id="titleImg"
 							className=""
 							onClick={() => setShowChat(showChat ? false : true)}
 							src={imagenBot}
@@ -132,138 +133,149 @@ export const Form = () => {
 			</div>
 			<form action="submit" method="post">
 				<div className="container d-flex flex-column align-items-start mx-4">
-					<div className="row w-50 mx-4 d-flex align-items-end w-75">
-						{/* Nombre */}
-						<div className="col-md-6">
-							<div className="form-group d-flex flex-column align-items-start">
-								<label htmlFor="name" className="mb-2">
-									Nombre del Robot
-								</label>
-								<input
-									type="text"
-									className="form-control text-center"
-									id="name"
-									placeholder={nombreBot}
-									onChange={handleNombreBotChange}
-									style={{
-										borderRadius: "2em",
-										fontSize: "15px",
-										lineHeight: "1.5",
-										color: colorPrimario,
-										display: "block",
-										width: "100%",
-										background: colorSecundario,
-										height: "50px",
-										fontWeight: "bold",
-									}}
-								/>
-							</div>
-						</div>
-						{/* Color Primario */}
-
-						<div className="col-md-3">
-							<div className="form-group d-flex flex-column align-items-center">
-								<label htmlFor="colorP" className="mb-2">
-									Color Primario
-								</label>
-								<Dropdown
-									isOpen={dropdownOpen0}
-									toggle={toggleDropdown0}
-									className="mb-2"
-								>
-									<DropdownToggle
-										caret
+					<fieldset className="">
+						<legend style={{color:colorPrimario}}>Nombre y colores</legend>
+						<div className="row w-50 mx-4 d-flex align-items-end w-75">
+							{/* Nombre */}
+							<div className="col-md-6">
+								<div className="form-group d-flex flex-column align-items-start">
+									<label htmlFor="name" className="mb-2">
+										Nombre del Robot
+									</label>
+									<input
+										type="text"
+										className="form-control text-center"
+										id="name"
+										placeholder={nombreBot}
+										onChange={handleNombreBotChange}
 										style={{
-											backgroundColor: colorPrimario,
-											borderRadius: "50%",
-											width: "20px",
-											height: "45px",
+											borderRadius: "2em",
+											fontSize: "15px",
+											lineHeight: "1.5",
+											color: colorPrimario,
+											display: "block",
+											width: "100%",
+											background: colorSecundario,
+											height: "50px",
+											fontWeight: "bold",
 										}}
-									></DropdownToggle>
-									<DropdownMenu>
-										<DropdownItem header>
-											Elegir color
-										</DropdownItem>
-										<DropdownItem>
-											<CirclePicker
-												onChange={handleChangeColor0}
-											/>
-										</DropdownItem>
-									</DropdownMenu>
-								</Dropdown>
+									/>
+								</div>
+							</div>
+							{/* Color Primario */}
+
+							<div className="col-md-3">
+								<div className="form-group d-flex flex-column align-items-center">
+									<label htmlFor="colorP" className="mb-2">
+										Color Primario
+									</label>
+									<Dropdown
+										isOpen={dropdownOpen0}
+										toggle={toggleDropdown0}
+										className="mb-2"
+									>
+										<DropdownToggle
+											caret
+											style={{
+												backgroundColor: colorPrimario,
+												borderRadius: "50%",
+												width: "20px",
+												height: "45px",
+											}}
+										></DropdownToggle>
+										<DropdownMenu>
+											<DropdownItem header>
+												Elegir color
+											</DropdownItem>
+											<DropdownItem>
+												<CirclePicker
+													onChange={
+														handleChangeColor0
+													}
+												/>
+											</DropdownItem>
+										</DropdownMenu>
+									</Dropdown>
+								</div>
+							</div>
+
+							{/* Color Secundario */}
+							<div className="col-md-3">
+								<div className="form-group d-flex flex-column align-items-center">
+									<label htmlFor="colorS" className="mb-2">
+										Color Secundario
+									</label>
+									<Dropdown
+										isOpen={dropdownOpen}
+										toggle={toggleDropdown}
+										className="mb-2"
+									>
+										<DropdownToggle
+											caret
+											style={{
+												backgroundColor:
+													colorSecundario,
+												borderRadius: "50%",
+												width: "20px",
+												height: "45px",
+											}}
+										></DropdownToggle>
+										<DropdownMenu>
+											<DropdownItem header>
+												Elegir color
+											</DropdownItem>
+											<DropdownItem>
+												<CirclePicker
+													onChange={handleChangeColor}
+													colors={coloresClaros}
+												/>
+											</DropdownItem>
+										</DropdownMenu>
+									</Dropdown>
+								</div>
 							</div>
 						</div>
+					</fieldset>
+					<fieldset>
+						<legend style={{color:colorPrimario}}>Imagen</legend>
+						{/* Selector de Imagenes */}
 
-						{/* Color Secundario */}
-						<div className="col-md-3">
-							<div className="form-group d-flex flex-column align-items-center">
-								<label htmlFor="colorS" className="mb-2">
-									Color Secundario
-								</label>
-								<Dropdown
-									isOpen={dropdownOpen}
-									toggle={toggleDropdown}
-									className="mb-2"
+						<div
+							className="row gap-3 d-flex justify-content-start align-items-start mx-4"
+							style={{
+								marginBottom: "30px",
+								width: "100%",
+								zIndex: "0",
+							}}
+						>
+							{/* <label htmlFor="imagen" className="mt-4">
+								Imagen del Robot
+							</label> */}
+							{imagenes.map((imagen, index) => (
+								<div
+									className="col-md-3 col-sm-2 d-flex justify-content-start"
+									key={index}
 								>
-									<DropdownToggle
-										caret
+									<img
+										src={imagen.url}
+										alt={imagen.nombre}
+										className={
+											imagen.url === imagenBot
+												? "selected"
+												: ""
+										}
+										onClick={() =>
+											handleImagenBotClick(imagen.url)
+										}
 										style={{
-											backgroundColor: colorSecundario,
-											borderRadius: "50%",
-											width: "20px",
-											height: "45px",
+											width: "50px",
+											height: "auto",
 										}}
-									></DropdownToggle>
-									<DropdownMenu>
-										<DropdownItem header>
-											Elegir color
-										</DropdownItem>
-										<DropdownItem>
-											<CirclePicker
-												onChange={handleChangeColor}
-												colors={coloresClaros}
-											/>
-										</DropdownItem>
-									</DropdownMenu>
-								</Dropdown>
-							</div>
+									/>
+								</div>
+							))}
 						</div>
-					</div>
-
-					{/* Selector de Imagenes */}
-
-					<div
-						className="row gap-3 d-flex justify-content-start align-items-center mx-4"
-						style={{
-							marginBottom: "30px",
-							width: "100%",
-							zIndex: "2",
-						}}
-					>
-						<label htmlFor="imagen" className="mt-4">
-							Imagen del Robot
-						</label>
-						{imagenes.map((imagen, index) => (
-							<div
-								className="col-md-3 d-flex justify-content-center"
-								key={index}
-							>
-								<img
-									src={imagen.url}
-									alt={imagen.nombre}
-									className={
-										imagen.url === imagenBot
-											? "selected"
-											: ""
-									}
-									onClick={() =>
-										handleImagenBotClick(imagen.url)
-									}
-									style={{ width: "50px", height: "auto" }}
-								/>
-							</div>
-						))}
-					</div>
+					</fieldset>
 				</div>
 			</form>
 			<InitialButton
