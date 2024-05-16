@@ -3,6 +3,7 @@ import { MDBCardBody } from "mdb-react-ui-kit";
 import { BotMessage } from "./BotMessage";
 import { UserMessage } from "./UserMessage";
 import { Input } from "./Input";
+import { consultaChatBot } from "../utils/api-connect"
 
 
 export const Body = ({
@@ -78,6 +79,7 @@ export const Body = ({
 									companyName={companyName}
 									welcomeMessage={welcomeMessage}
 									secondaryColor={secondaryColor}
+									botMessage={message.text}
 									botMessage={message.text}
 								/>
 							</li>

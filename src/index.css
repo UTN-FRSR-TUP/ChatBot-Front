@@ -90,6 +90,7 @@ li {
 .card {
 	--mdb-card-height: 80vh;
 	height: 80vh;
+	
 }
 
 .card-body {
@@ -132,9 +133,17 @@ li {
 		box-shadow: 0 0 70px 25px;
 		opacity: 0;
 	}
+	to {
+		box-shadow: 0 0 70px 25px;
+		opacity: 0;
+	}
 }
 
 @keyframes anim-shadow {
+	to {
+		box-shadow: 0 0 70px 25px;
+		opacity: 0;
+	}
 	to {
 		box-shadow: 0 0 70px 25px;
 		opacity: 0;
