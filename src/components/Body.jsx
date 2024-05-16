@@ -80,7 +80,7 @@ export const Body = ({
 									welcomeMessage={welcomeMessage}
 									secondaryColor={secondaryColor}
 									botMessage={message.text}
-									botMessage={message.text}
+									
 								/>
 							</li>
 						);
