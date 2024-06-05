@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { MDBCardHeader, MDBIcon } from "mdb-react-ui-kit";
+
+import { MDBCardHeader,} from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,7 +23,6 @@ export const Header = ({ botName, primaryColor, setShowChat }) => {
 					onClick={() => setShowChat(false)}
 				/>
 			</div>
-			{/* <MDBIcon fas icon="times" /> */}
 		</MDBCardHeader>
 	);
 };

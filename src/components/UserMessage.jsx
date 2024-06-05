@@ -1,5 +1,3 @@
-import React from "react";
-
 export const UserMessage = ({userMessage}) => {
 	return (
 		<div className="d-flex flex-row justify-content-end mb-4">
@@ -11,11 +9,6 @@ export const UserMessage = ({userMessage}) => {
 					{userMessage}
 				</p>
 			</div>
-			{/* <img
-				src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
-				alt="avatar 1"
-				style={{ width: "45px", height: "100%" }}
-			/> */}
 		</div>
 	);
 };

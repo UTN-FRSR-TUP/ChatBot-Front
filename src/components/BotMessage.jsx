@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 
-
-export const BotMessage = ({botImg, botName, companyName, secondaryColor, botMessage}) => {
+export const BotMessage = ({ botImg, secondaryColor, botMessage }) => {
 	return (
 		<>
 			<div className="d-flex flex-row justify-content-start mb-4">
@@ -15,7 +13,7 @@ export const BotMessage = ({botImg, botName, companyName, secondaryColor, botMes
 					style={{
 						borderRadius: "15px",
 						backgroundColor: secondaryColor,
-						
+
 					}}
 				>
 					<p className="small mb-0">

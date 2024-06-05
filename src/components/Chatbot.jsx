@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+
 import {
 	MDBContainer,
 	MDBRow,
 	MDBCol,
 	MDBCard,
-	MDBCardHeader,
-	MDBCardBody,
-	MDBIcon,
-	MDBTextArea,
 } from "mdb-react-ui-kit";
 import { Header } from "./Header";
 import { Body } from "./Body";
@@ -25,7 +21,8 @@ export default function Chatbot({
 	companyName,
 	consultaChatBot,
 	setShowChat
-}) {
+})  {
+	//Se definen los colores primario y secundario, se retorna el chatbot
 	const primaryColor = colorPrimario;
 	const secondaryColor = colorSecundario;
 	return (

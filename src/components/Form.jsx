@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { CirclePicker } from "react-color";
 import {
 	Dropdown,
@@ -11,14 +11,12 @@ import { InitialButton } from "./InitialButton";
 import { consultaChatBot } from "../utils/api-connect";
 
 export const Form = () => {
-	/* API Connect */
-
-	/* Mensaje de bienvenida */
+	/* Mensaje de bienvenida, el mensaje de bienvenida se toma del archivo json importado más arriba */
 	const welcomeMessage = Data["bot-data"]["welcome-message"];
 
-	/* Presentacion del Chat */
+	/* Presentación del Chat, se setea un estado para la presentación del chat */
 	const [chatPresentation, setChatPresentation] = useState("");
-
+	// useEffect para que se ejecute solo una vez, al tener dependencia vacía, setea la presentación
 	useEffect(() => {
 		const fetchChatBotPresentation = async () => {
 			try {
@@ -28,27 +26,33 @@ export const Form = () => {
 				console.error("Error consultando al chatbot:", error);
 			}
 		};
-
 		fetchChatBotPresentation();
 	}, []);
 
-	/* Nombre Bot */
+	/* Nombre Bot, más declaración de estado */
 	const [nombreBot, setNombreBot] = useState(Data["bot-data"]["name"]);
+
+	// Función para manejar el cambio de nombre del bot
 	const handleNombreBotChange = (event) => {
 		setNombreBot(event.target.value);
 	};
 
 	/* Color Primario */
+	// Colores para el color primario el estado define si se muestra la selección o no
 	const [dropdownOpen0, setDropdownOpen0] = useState(false);
+	// Estado para el color primario, con el color que se toma del archivo json como estado inicial
 	const [colorPrimario, setColorPrimario] = useState(
 		Data["bussiness-data"]["primary-color"]
 	);
-
+	// Función para manejar el cambio de color
 	const toggleDropdown0 = () => setDropdownOpen0((prevState) => !prevState);
 
+	// Función para manejar el cambio de color
 	const handleChangeColor0 = (color) => {
+		// Se setea el color primario con el color seleccionado
 		setColorPrimario(color.hex);
 	};
+
 	/* Color Secundario */
 	const coloresClaros = [
 		"#fcd0cd",
@@ -70,44 +74,48 @@ export const Form = () => {
 		"#e1d3cd",
 		"#607d8b",
 	];
+	// Estado para el color secundario, con el color que se toma del archivo json como estado inicial
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const [colorSecundario, setColorSecundario] = useState(
 		Data["bussiness-data"]["secondary-color"]
 	);
-
+	// Función para manejar el cambio de color
 	const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
-
+	// Función para manejar el cambio de color secundario
 	const handleChangeColor = (color) => {
+		// Se setea el color secundario con el color seleccionado
 		setColorSecundario(color.hex);
 	};
 
-	/* Selector de Imagenes */
+	/* Selector de Imágenes */
+	// Estado para la imagen del bot, con la imagen que se toma del archivo json como estado inicial
 	const [imagenBot, setImagenBot] = useState(Data["bot-data"]["bot-img"]);
-
+	// Función para manejar el cambio de imagen del bot
 	const handleImagenBotClick = (url) => {
+		// Se setea la imagen del bot con la imagen seleccionada
 		setImagenBot(url);
 	};
 
+	// Array de imágenes para el selector de imágenes
 	const imagenes = [
 		{ url: Data["bot-data"]["bot-img"], nombre: "Imagen 1" },
-		{ url: "img/opt2.png", nombre: "Imagen 2" },
-		{ url: "img/opt3.png", nombre: "Imagen 3" },
-		{ url: "img/opt4.png", nombre: "Imagen 4" },
-		{ url: "img/opt5.png", nombre: "Imagen 5" },
-		{ url: "img/opt6.png", nombre: "Imagen 6" },
+		{ url: "http://localhost:5173/CB_TRIAL/public/img/opt2.png", nombre: "Imagen 2" },
+		{ url: "http://localhost:5173/CB_TRIAL/public/img/opt3.png", nombre: "Imagen 3" },
+		{ url: "http://localhost:5173/CB_TRIAL/public/img/opt4.png", nombre: "Imagen 4" },
+		{ url: "http://localhost:5173/CB_TRIAL/public/img/opt5.png", nombre: "Imagen 5" },
+		{ url: "http://localhost:5173/CB_TRIAL/public/img/opt6.png", nombre: "Imagen 6" },
 	];
 
+	// Renderizado del componente, las clases son de bootstrap y estilos propios
 	return (
 		<div className="landing position-relative d-flex flex-column align-items-start justify-content-evenly ">
 			<div className="d-flex flex-column align-items-start mx-4">
-				{" "}
 				<div className="d-flex gap-2">
 					<h1 className="mb-0" style={{ color: colorPrimario }}>
 						CHATBOT <span className="mx-2">{nombreBot}</span>
 						<img
 							id="titleImg"
 							className=""
-							onClick={() => setShowChat(showChat ? false : true)}
 							src={imagenBot}
 							alt="chatbot"
 							style={{
@@ -134,7 +142,7 @@ export const Form = () => {
 			<form action="submit" method="post">
 				<div className="container d-flex flex-column align-items-start mx-4">
 					<fieldset className="">
-						<legend style={{color:colorPrimario}}>Nombre y colores</legend>
+						<legend style={{ color: colorPrimario }}>Nombre y colores</legend>
 						<div className="row w-50 mx-4 d-flex align-items-end w-75">
 							{/* Nombre */}
 							<div className="col-md-6">
@@ -163,7 +171,6 @@ export const Form = () => {
 								</div>
 							</div>
 							{/* Color Primario */}
-
 							<div className="col-md-3">
 								<div className="form-group d-flex flex-column align-items-center">
 									<label htmlFor="colorP" className="mb-2">
@@ -188,17 +195,12 @@ export const Form = () => {
 												Elegir color
 											</DropdownItem>
 											<DropdownItem>
-												<CirclePicker
-													onChange={
-														handleChangeColor0
-													}
-												/>
+												<CirclePicker onChange={handleChangeColor0} />
 											</DropdownItem>
 										</DropdownMenu>
 									</Dropdown>
 								</div>
 							</div>
-
 							{/* Color Secundario */}
 							<div className="col-md-3">
 								<div className="form-group d-flex flex-column align-items-center">
@@ -213,8 +215,7 @@ export const Form = () => {
 										<DropdownToggle
 											caret
 											style={{
-												backgroundColor:
-													colorSecundario,
+												backgroundColor: colorSecundario,
 												borderRadius: "50%",
 												width: "20px",
 												height: "45px",
@@ -237,9 +238,8 @@ export const Form = () => {
 						</div>
 					</fieldset>
 					<fieldset>
-						<legend style={{color:colorPrimario}}>Imagen</legend>
-						{/* Selector de Imagenes */}
-
+						<legend style={{ color: colorPrimario }}>Imagen</legend>
+						{/* Selector de Imágenes */}
 						<div
 							className="row gap-3 d-flex justify-content-start align-items-start mx-4"
 							style={{
@@ -248,9 +248,7 @@ export const Form = () => {
 								zIndex: "0",
 							}}
 						>
-							{/* <label htmlFor="imagen" className="mt-4">
-								Imagen del Robot
-							</label> */}
+							{/* Se mapea el array de imágenes para renderizar las opciones, sensibles a la función onClick */}
 							{imagenes.map((imagen, index) => (
 								<div
 									className="col-md-3 col-sm-2 d-flex justify-content-start"
